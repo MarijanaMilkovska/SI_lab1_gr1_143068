@@ -66,3 +66,34 @@ public String getIndex() {
 	}
 	}
 }
+ 
+ class Course{
+	 List<Student> students;
+	 	public Course(List<Student> students) {
+		this.students = students;
+	}
+	public void addStudent(Student newStudent) {
+		this.students.add(newStudent)
+	}
+	public void removeStudent (Student removeStudent) {
+		for(int i=0; i<students.size(); i++){
+			if(students.get(i).getIndex == removeStudent.getIndex()){
+				students.remove(i);
+			}
+		}
+	}
+	public float averageStudents(){
+		float sumAverage = 0;
+		for(Student student:students){
+			sumAverage += student.getAverage();
+		}
+		return sumAverage/students.size();
+	}
+	public float averageCredits(){
+		float sumECTS = 0;
+		for (Student student:students){
+			sumECTS += student.ECTSCredits();
+		}
+		return sumECTS/students.size();
+	}
+ }
